@@ -36,6 +36,10 @@ public class Scores {
         scores.put(id, new Score(user, score)); // Add one object to list with your id
     }
 
+    public void delete(Integer id){
+        scores.remove(id);
+    }
+
 
 
 

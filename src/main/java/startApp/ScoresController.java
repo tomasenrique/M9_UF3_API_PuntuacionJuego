@@ -1,11 +1,9 @@
 package startApp;
 
+import entities.DeleteScore;
 import entities.Score;
 import entities.Scores;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
@@ -16,18 +14,8 @@ public class ScoresController {
     // Este metodo enviara los datos a la API por medio de la url 'http://localhost:8080/game/score'
     @PostMapping("/game/score")
     public void addScore(@RequestBody Score score) {
-        this.scores.addScore(score.getUser(), score.getScore());
+        this.scores.addScore(score.getUser(), score.getScore()); // aqui se indica la cantidad de parametros a pasar, en este caso 2
     }
-    /* EJM del POST
-    POST http://localhost:8080/game/score
-    Content-Type: application/json
-
-    {
-        "user":152,
-        "score": 25
-    }
-    */
-
 
     // Este metodo obtendra los registros que tiene la API por medio de la url 'http://localhost:8080/game/score'
     @GetMapping("/game/score")
@@ -35,22 +23,12 @@ public class ScoresController {
         return this.scores;
     }
 
-    /* EJM del GET
-    GET http://localhost:8080/game/score
 
-   {
-      "scores": {
-        "1": {
-          "user": 152,
-          "score": 25
-        },
-        "2": {
-          "user": 2,
-          "score": 258
-        }
-      }
+    // Este metodo borrara un registro de la API por medio de la url 'http://localhost:8080/game/score'
+    @DeleteMapping("/game/score")
+    public void deleteScore(@RequestBody DeleteScore score) {
+        this.scores.delete(score.getId());
     }
-    */
 
 
 }

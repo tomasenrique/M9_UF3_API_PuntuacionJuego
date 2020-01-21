@@ -46,3 +46,73 @@ EJM:
 
 
 { "postList": { "0": { "post": "Hola de prueba" }, "1": { "post": "Este es el tercer post" } } }
+
+========================================================================================================================
+
+
+@RestController
+public class ScoresController {
+
+    private Scores scores = new Scores();
+
+    // Este metodo enviara los datos a la API por medio de la url 'http://localhost:8080/game/score'
+    @PostMapping("/game/score")
+    public void addScore(@RequestBody Score score) {
+        this.scores.addScore(score.getUser(), score.getScore()); // aqui se indica la cantidad de parametros a pasar, en este caso 2
+    }
+    /* EJM del POST
+    POST http://localhost:8080/game/score
+    Content-Type: application/json
+
+    {
+        "user":152,
+        "score": 25
+    }
+    */
+
+    // Este metodo obtendra los registros que tiene la API por medio de la url 'http://localhost:8080/game/score'
+    @GetMapping("/game/score")
+    public Scores getScores() {
+        return this.scores;
+    }
+
+    /* EJM del GET
+    GET http://localhost:8080/game/score
+
+   {
+      "scores": {
+        "1": {
+          "user": 152,
+          "score": 25
+        },
+        "2": {
+          "user": 2,
+          "score": 258
+        }
+      }
+    }
+    */
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
