@@ -1,0 +1,48 @@
+API para guardar las puntuaciones de un juego
+
+Hay que crear una API  donde podemos gestionar las puntuaciones de un juego:
+inicialmente hay que ofrecer las operaciones:
+
+1. Añadir una nueva puntuación
+
+POST / juego / puntuaciones
+{
+    "usuari":1,
+    "puntuacio": 2300
+}
+
+
+
+2. Consultar todas las puntuaciones
+GET / juego / puntuaciones
+
+ejemplo respuesta:
+[
+    {
+        "usuari":1,
+        "puntuacio": 2300
+    },
+    {
+        "usuari":2,
+        "puntuacio": 2520
+    }
+]
+
+[ { "usuari":1, "puntuacio": 2300 }, { "usuari":2, "puntuacio": 2520 } ]
+
+========================================================================================================================
+EJM:
+
+{
+  "postList": {
+                "0": {
+                "post": "Hola de prueba"
+                     },
+                "1": {
+                "post": "Este es el tercer post"
+                    }
+              }
+}
+
+
+{ "postList": { "0": { "post": "Hola de prueba" }, "1": { "post": "Este es el tercer post" } } }
