@@ -26,7 +26,7 @@ public class Scores {
 
     // Method
     public void addScore(int score){
-        Integer id = nextId.getAndDecrement(); // Get id and increment the number
+        Integer id = nextId.getAndIncrement(); // Get id and increment the number
         scores.put(id, new Score(score)); // Add one object to list with your id
     }
 
