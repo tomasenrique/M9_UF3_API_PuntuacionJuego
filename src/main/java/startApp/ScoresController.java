@@ -13,22 +13,45 @@ public class ScoresController {
 
     private Scores scores = new Scores();
 
-    @PostMapping("/score")
+    // Este metodo enviara los datos a la API por medio de la url 'http://localhost:8080/game/score'
+    @PostMapping("/game/score")
     public void addScore(@RequestBody Score score) {
-        this.scores.addScore(score.getScore());
+        this.scores.addScore(score.getUser(), score.getScore());
     }
+    /* EJM del POST
+    POST http://localhost:8080/game/score
+    Content-Type: application/json
+
+    {
+        "user":152,
+        "score": 25
+    }
+    */
 
 
-    @GetMapping("/score")
+    // Este metodo obtendra los registros que tiene la API por medio de la url 'http://localhost:8080/game/score'
+    @GetMapping("/game/score")
     public Scores getScores() {
         return this.scores;
     }
 
+    /* EJM del GET
+    GET http://localhost:8080/game/score
 
-/*    {
-        "usuari":1,
-        "puntuacio": 2300
-    }*/
+   {
+      "scores": {
+        "1": {
+          "user": 152,
+          "score": 25
+        },
+        "2": {
+          "user": 2,
+          "score": 258
+        }
+      }
+    }
+    */
 
 
 }
+
