@@ -1,6 +1,7 @@
 package scoreGame.controller;
 
 import scoreGame.entities.DeleteScore;
+import scoreGame.entities.PutScore;
 import scoreGame.entities.Score;
 import scoreGame.entities.Scores;
 import org.springframework.web.bind.annotation.*;
@@ -30,19 +31,11 @@ public class ScoresController {
         this.scores.delete(score.getId());
     }
 
+    // Este metodo actualiza un registro de la API por medio de la url 'http://localhost:8080/game/score'
     @PutMapping("/game/score")
-    public void actualizar(){
-
+    public void actualizar(@RequestBody PutScore putScore) {
+        this.scores.update(putScore.getId(), putScore.getNewUser(), putScore.getNewScore());
     }
-
-
-/*
-    @PutMapping("/{nombre}")
-    public void actualizar(@PathVariable("nombre") String nombre, @RequestBody Persona persona) {
-        listaPersonas.remove(new Persona(nombre));
-        listaPersonas.add(persona);
-    }
-*/
 
 
 }

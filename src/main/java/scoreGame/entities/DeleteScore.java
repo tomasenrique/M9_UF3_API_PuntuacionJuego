@@ -21,4 +21,17 @@ public class DeleteScore {
         this.id = id;
     }
 
+    /**IMPORTANTE
+     * OJO, el nombre del atributo aqui puesto tiene que ser el mismo a la hora de realizar el metodo DELETE tal y
+     * como se muestra en el ejemplo de abajo
+     *
+     * DELETE http://localhost:8080/game/score
+     * Content-Type: application/json
+     *
+     * {
+     *   "id": "3"
+     * }
+     *
+     */
+
 }

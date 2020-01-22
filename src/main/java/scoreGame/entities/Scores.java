@@ -25,12 +25,6 @@ public class Scores {
     }
 
     // Methods
-    public void addScore(int score){
-        Integer id = nextId.getAndIncrement(); // Get id and increment the number
-        scores.put(id, new Score(score)); // Add one object to list with your id
-    }
-
-
     public void addScore(int user, int score){
         Integer id = nextId.getAndIncrement(); // Get id and increment the number
         scores.put(id, new Score(user, score)); // Add one object to list with your id
@@ -38,6 +32,15 @@ public class Scores {
 
     public void delete(Integer id){
         scores.remove(id);
+    }
+
+
+    public void update(Integer id, int newUser, int newScore){
+        if (scores.containsKey(id)) { // Verify to exists the key
+            scores.put(id, new Score(newUser, newScore)); // it update the object
+        }else {
+            System.out.println("The key not exists");
+        }
     }
 
 

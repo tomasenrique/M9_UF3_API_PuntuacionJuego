@@ -1,0 +1,91 @@
+GET http://localhost:8080/score
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-01-21T051456.200.json
+<> 2020-01-21T051109.200.json
+<> 2020-01-21T050950.200.json
+<> 2020-01-21T045745.200.json
+<> 2020-01-21T045357.200.json
+<> 2020-01-21T045021.200.json
+<> 2020-01-21T044952.200.json
+<> 2020-01-21T044842.200.json
+<> 2020-01-21T044816.404.json
+
+###
+
+POST http://localhost:8080/score
+Content-Type: application/json
+
+{
+  "score":  999
+}
+
+###
+
+POST http://localhost:8080/score
+Content-Type: application/json
+
+{
+   "user":45,
+   "score": 1111
+}
+
+###
+
+
+POST http://localhost:8080/game/score
+Content-Type: application/json
+
+{
+  "user":5,
+  "score": 50
+}
+
+<> 2020-01-22T100006.404.json
+
+###
+
+GET http://localhost:8080/game/score
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-01-22T111307.200.json
+<> 2020-01-22T111034.200.json
+<> 2020-01-22T111000.200.json
+<> 2020-01-22T105054.200.json
+<> 2020-01-22T105035.200.json
+<> 2020-01-22T102050.200.json
+<> 2020-01-22T100618.200.json
+<> 2020-01-22T100102.404.json
+<> 2020-01-22T122927.200.json
+<> 2020-01-22T122913.200.json
+<> 2020-01-22T122749.200.json
+<> 2020-01-21T064920.200.json
+<> 2020-01-21T052409.200.json
+<> 2020-01-21T051637.200.json
+
+###
+
+DELETE http://localhost:8080/game/score
+Content-Type: application/json
+
+{
+  "id": "3"
+}
+
+<> 2020-01-22T122834.404.json
+
+###
+
+
+PUT http://localhost:8080/game/score
+Content-Type: application/json
+
+{
+  "id": "3",
+  "newUser":500,
+  "newScore":2000
+}
+
+###

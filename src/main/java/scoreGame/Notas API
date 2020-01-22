@@ -48,6 +48,8 @@ EJM:
 { "postList": { "0": { "post": "Hola de prueba" }, "1": { "post": "Este es el tercer post" } } }
 
 ========================================================================================================================
+========================================================================================================================
+========================================================================================================================
 
 
 @RestController
@@ -70,6 +72,7 @@ public class ScoresController {
     }
     */
 
+    ********************************************************************************************************************
     // Este metodo obtendra los registros que tiene la API por medio de la url 'http://localhost:8080/game/score'
     @GetMapping("/game/score")
     public Scores getScores() {
@@ -92,6 +95,40 @@ public class ScoresController {
       }
     }
     */
+
+    ********************************************************************************************************************
+    // Este metodo borrara un registro de la API por medio de la url 'http://localhost:8080/game/score'
+    @DeleteMapping("/game/score")
+    public void deleteScore(@RequestBody DeleteScore score) {
+        this.scores.delete(score.getId());
+    }
+
+
+    DELETE http://localhost:8080/game/score
+    Content-Type: application/json
+
+    {
+      "id": "3"
+    }
+
+
+    ********************************************************************************************************************
+    // Este metodo actualiza un registro de la API por medio de la url 'http://localhost:8080/game/score'
+    @PutMapping("/game/score")
+    public void actualizar(@RequestBody PutScore putScore){
+        this.scores.update(putScore.getId(), putScore.getNewUser(), putScore.getNewScore());
+    }
+
+
+    PUT http://localhost:8080/game/score
+    Content-Type: application/json
+
+    {
+      "id": "3",
+      "newUser":500,
+      "newScore":2000
+    }
+
 
 }
 
