@@ -1,8 +1,8 @@
-package startApp;
+package scoreGame.controller;
 
-import entities.DeleteScore;
-import entities.Score;
-import entities.Scores;
+import scoreGame.entities.DeleteScore;
+import scoreGame.entities.Score;
+import scoreGame.entities.Scores;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -29,6 +29,20 @@ public class ScoresController {
     public void deleteScore(@RequestBody DeleteScore score) {
         this.scores.delete(score.getId());
     }
+
+    @PutMapping("/game/score")
+    public void actualizar(){
+
+    }
+
+
+/*
+    @PutMapping("/{nombre}")
+    public void actualizar(@PathVariable("nombre") String nombre, @RequestBody Persona persona) {
+        listaPersonas.remove(new Persona(nombre));
+        listaPersonas.add(persona);
+    }
+*/
 
 
 }

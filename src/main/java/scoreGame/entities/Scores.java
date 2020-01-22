@@ -1,4 +1,4 @@
-package entities;
+package scoreGame.entities;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

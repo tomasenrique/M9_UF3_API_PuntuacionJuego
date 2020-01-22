@@ -1,4 +1,4 @@
-package entities;
+package scoreGame.entities;
 
 public class DeleteScore {
 
