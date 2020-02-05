@@ -1,12 +1,14 @@
 package scoreGame.entities;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Scores {
 
-    private Map<Integer, Score> scores;
+    private Map<Integer, Score> scores; // este sera el nombre que aparecera en el JSON
     private AtomicInteger nextId;
 
     // Builder
@@ -19,6 +21,7 @@ public class Scores {
     public Map<Integer, Score> getScores() {
         return scores;
     }
+
 
     public void setScores(Map<Integer, Score> scores) {
         this.scores = scores;
@@ -43,7 +46,10 @@ public class Scores {
         }
     }
 
-
+    // Este metodo devolvera las puntuaciones como un array y no mostrara el id de envio a la API
+    public List<Score> getScoresAsArray() {
+        return new ArrayList<>(scores.values());
+    }
 
 
 
